@@ -1,4 +1,4 @@
 interviews
 ==========
 
-interview problem seeds
+Questions and problems that might be useful for interviewing.
