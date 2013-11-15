@@ -1,4 +1,4 @@
-What is the author\'s intent of the following code block?
+What is the intent of the author in the following code block?
 
 ```actionscript
 public function get hasThreadModification():Boolean
