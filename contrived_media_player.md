@@ -1,34 +1,91 @@
-Stub out some of the class and method signatures for a media player. Pseudo code is fine.
-What sorts of considerations can be made to minimize code? Do these considerations outweigh readibility?
+We are building a media player with the following requirements:
+- Play, pause, and stop playback states need to be available
+- Playlist navigation via next, and previous
+- Items from the library should be able to be added to the playlist
 
-For example:
+Some of the functionality has already been completed:
 
 ```java
-public interface SystemAudio {
+import fake.system.media.MetaData;
+import java.text.ParseException;
 
-    boolean open(Stream mediaStream);
-    
-    boolean close(Stream mediaStream);
+public class Media {
 
-}
+    private String sourceUri = null;
+    private MetaData metaData = null;
 
-public class AndroidSystemAudio implements SystemAudio {
-
-    @Override
-    public boolean open(Stream mediaStream) {
-        ...
+    public Media(sourceUri) throws ParseException {
+        this.sourceUri = sourceUri;
+        this.metaData = MetaData.parseMedia(this.sourceUri);
+        if (this.metaData == null) {
+            throw new ParseException("unable to parse media MetaData");
+        }
     }
     
-    @Override
-    public boolean close(Stream mediaStream) {
-        ...
+    public MetaData getMetaData() {
+        return this.metaData;
+    }
+
+    public String getSourceUri() {
+        return this.sourceUri;
     }
     
+    public boolean isAudio() {
+        String mimeType = this.metaData.mimeType;
+        return mimeType.contains("audio");
+    }
+    
+    public boolean isVideo() {
+        String mimeType = this.metaData.mimeType;
+        return mimeType.contains("video");
+    }
+
 }
+```
 
-public class DesktopSystemAudio implements SystemAudio {
+```java
+import fake.system.media.Audio;
+import fake.system.media.Constants;
+import fake.system.media.PlayerSubSystem;
+import fake.system.media.Video;
 
-    ...
+public class MediaPlayer {
+
+    private static MediaPlayer singleInstance = null;
+    
+    private PlayerSubSystem systemControl = null;
+
+    private MediaPlayer() {
+        systemControl = new PlayerSubSystem();
+        systemControl.setLooping(false);
+        systemControl.setStreamType(Constants.STREAM_AUDIO);
+    }
+    
+    public static MediaPlayer getInstance() {
+        if (singleInstance == null) {
+            singleInstance = new MediaPlayer();
+        }
+        return singleInstance;
+    }
+    
+    public boolean play(Media theMedia) {
+        return systemControl.play(theMedia.getSourceUri());
+    }
+    
+    public boolean pause(Media theMedia) {
+        return systemControl.pause(theMedia.getSourceUri());
+    }
+    
+    //TODO: implement stop
     
 }
 ```
+
+Stub out the playlist functionality.
+
+***
+
+Unfortunately, we work with poor planner Peter who failed to do sufficient discovery.
+The requirements have changed:
+- There should be a single play/pause toggle button
+- Mobile devices use a different media namespace: `fake.mobile.system.media.*`
