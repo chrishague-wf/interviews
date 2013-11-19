@@ -1,4 +1,18 @@
-What could go wrong with the following code block? Any improvements to how data is stored/retrieved?
+The following is an example of a deep-copy method on an
+[_ActionScript_ `HashMap` implementation](https://github.com/jaybaird/as3ds/blob/master/de/polygonal/ds/HashMap.as).
+
+```actionscript
+public function toArray():Array
+{
+        var a:Array = new Array(_size), i:int;
+        for each (var p:PairNode in _keyMap)
+                a[i++] = p.obj;
+        return a;
+}
+```
+
+Given that `valuesToArray()` is a wrapper for the aforementioned `toArray()`,
+what might be some unforseen consequences in the following code block?
 
 ```actionscript
 private var _threadList:ArrayCollection;
