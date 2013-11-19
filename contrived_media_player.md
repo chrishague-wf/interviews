@@ -81,7 +81,9 @@ public class MediaPlayer {
 }
 ```
 
-Stub out the playlist functionality.
+Stub out the playlist functionality: 1) items should be able to be added,
+and the caller should be able to navigate to 2) previous or 3) upcoming items,
+with playback starting immediately.
 
 ***
 
