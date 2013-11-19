@@ -1,4 +1,5 @@
-What is the intent of the author in the following code block?
+This user facing code is triggered many thousands of times a day.
+Walk through the following code block line-by-line. Explain what each line does.
 
 ```actionscript
 public function get hasThreadModification():Boolean
@@ -41,4 +42,6 @@ public function get hasThreadModification():Boolean
 }
 ```
 
-What could be done to improve this? Is this the right way to go about what the author is trying to do?
+This is code from a system that handles threaded discussions with comments.
+What does this code calculate in relation to the comment thread system?
+What could be done to improve how this is calculated?
