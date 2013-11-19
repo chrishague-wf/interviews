@@ -12,7 +12,7 @@ public function toArray():Array
 ```
 
 Given that `valuesToArray()` is a wrapper for the aforementioned `toArray()`,
-what might be some unforseen consequences in the following code block?
+what might be some unforseen consequences with the following code?
 
 ```actionscript
 private var _threadList:ArrayCollection;
@@ -37,6 +37,19 @@ public function get threadList():ArrayCollection
 	}
 
 	return _threadList;
+}
+
+...
+
+public function countThreads():void
+{
+	var threads:int = 0;
+	for each (var ct:CommentThread in _threadList)
+	{
+		this.trackThreadEdited(ct);
+		threads++;
+	}
+	numTotalThreads = threads;
 }
 ```
 
