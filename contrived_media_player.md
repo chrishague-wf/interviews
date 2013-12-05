@@ -44,10 +44,10 @@ public class Media {
 ```
 
 ```java
-import fake.system.media.Audio;
+import fake.system.media.stream.Audio;
 import fake.system.media.Constants;
 import fake.system.media.PlayerSubSystem;
-import fake.system.media.Video;
+import fake.system.media.stream.Video;
 
 public class MediaPlayer {
 
@@ -69,6 +69,7 @@ public class MediaPlayer {
     }
     
     public boolean play(Media theMedia) {
+        //TODO support Video.getStream
         return systemControl.play(Audio.getStream(theMedia.getSourceUri()));
     }
     
