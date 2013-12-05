@@ -90,4 +90,4 @@ with playback starting immediately.
 Unfortunately, we work with poor planner Peter who failed to do sufficient discovery.
 The requirements have changed:
 - There should be a single play/pause toggle button
-- Mobile devices use a different media namespace: `fake.mobile.system.media.*`
+- The `MediaPlayer` needs to support mobile devices, which use a different media namespace: `fake.mobile.system.media.*`
