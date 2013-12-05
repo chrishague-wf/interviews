@@ -46,6 +46,7 @@ public class Media {
 ```java
 import fake.system.media.stream.Audio;
 import fake.system.media.Constants;
+import fake.system.media.IPlayerSubSystem;
 import fake.system.media.PlayerSubSystem;
 import fake.system.media.stream.Video;
 
@@ -93,4 +94,4 @@ Also, please add support for `Video` streams.
 Unfortunately, we work with poor planner Peter who failed to do sufficient discovery.
 The requirements have changed:
 - There should be a single play/pause toggle button
-- The `MediaPlayer` needs to support mobile devices, which use a different version of the `PlayerSubSystem` located at `fake.system.media.PlayerSubSystem`.
+- The `MediaPlayer` needs to support mobile devices, which use a different version of the `IPlayerSubSystem` located at `fake.mobile.media.PlayerSubSystem`.
