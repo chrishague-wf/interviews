@@ -69,11 +69,11 @@ public class MediaPlayer {
     }
     
     public boolean play(Media theMedia) {
-        return systemControl.play(theMedia.getSourceUri());
+        return systemControl.play(Audio.getStream(theMedia.getSourceUri()));
     }
     
     public boolean pause(Media theMedia) {
-        return systemControl.pause(theMedia.getSourceUri());
+        return systemControl.pause(Audio.getStream(theMedia.getSourceUri()));
     }
     
     //TODO: implement stop
@@ -85,9 +85,11 @@ Stub out the playlist functionality: 1) items should be able to be added,
 and the caller should be able to navigate to 2) previous or 3) upcoming items,
 with playback starting immediately.
 
+Also, please add support for `Video` streams.
+
 ***
 
 Unfortunately, we work with poor planner Peter who failed to do sufficient discovery.
 The requirements have changed:
 - There should be a single play/pause toggle button
-- The `MediaPlayer` needs to support mobile devices, which use a different media namespace: `fake.mobile.system.media.*`
+- The `MediaPlayer` needs to support mobile devices, which use a different version of the `PlayerSubSystem` located at `fake.system.media.PlayerSubSystem`.
