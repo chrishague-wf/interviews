@@ -1,0 +1,29 @@
+- Intro Level Programmer should notice : 
+
+*Method one is and infinite loop as curFile is never set to anything else
+*Method two will break if curFile does not have children files (null pointer)
+*Method three is recursive
+
+- Mid Level Programmer should notice : 
+
+*Method one will break (null pointer) if given an invalid file path
+*Method two is breadth first
+*Method two will only go as deep as the FIRST child of any directory 
+   (as opposed to printing all the files) - curFile.children[0]
+*Method three is depth first
+
+- Senior Level Programmer should notice : 
+
+*Method one never prints the file if the path given is not a directory
+*Method two only has null check safety on the first file path given
+*None of the methods provide a parameter for depth (i.e : you can't specify how deep you want the list to go)
+
+- Other notes :
+
+*No unit tests !
+*None of the methods return the string in case you want to manipulate / format it elsewhere
+*See if they can modify method three to be breadth first
+*There should helper methods for printing like printDir() or printFile() so that there are not a lot of 
+    System.out.damn_this_is_cumborsome_to_type_over_and_over();
+
+
